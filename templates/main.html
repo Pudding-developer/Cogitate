@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">  
+  <head>
+    <!-- Metadata -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@400;700&display=swap" />
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    
+    <!-- Page Title -->
+    <title>Cogitate - Your Ultimate Study Mate!</title>
+    
+    <!-- Inline Styles -->
+    <style>
+      body {
+          font-weight: 400;
+          font-size: 1.5rem;
+          min-height: 100vh;
+          background-image: url('images/bg-paw.png');
+          background-size: cover;
+          background-position: top right;
+          background-repeat: no-repeat;
+          /* Additional styles for the body if needed */
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Include Navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Content Block -->
+    {% block content %}
+
+
+    {% endblock %}
+
+    <!-- JavaScript -->
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>
