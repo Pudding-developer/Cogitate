@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+
+    <!-- Greeting for Authenticated User -->
+    {% if request.user.is_authenticated %}
+      <h1 class="text">Hello, {{request.user.name}}!</h1>
+    {% endif %} 
+
+    <!-- Main Title and Description -->
+    <h2 class="title">COGITATE, CONCENTRATE, COLLABORATE:</h2>
+    <p class="text">Your Ultimate Study Mate</p>
+  </div>
+  
+  <!-- Service Description -->
+  <h3 class="textservice">Turn your study sessions into 
+    <span style="color: black;">ENGAGING EXPERIENCES</span> 
+    with our array of services all geared towards 
+    <span style="color: black;">STUDENT SUCCESS</span>.
+  </h3>
+
+  <!-- Service Buttons -->
+  <div class="button-list">
+    <!-- Time Management Button -->
+    <div class="button">
+        <a class="title" href="{% url 'time-management' %}">
+        <img src="{% static 'images/timer.png' %}" alt="Timer" />
+        </a>
+    </div>
+    
+    <!-- Calendar Button -->
+    <div class="button">
+        <a class="service-item-title" href="{% url 'calendar' %}">
+        <img class="hometext" src="{% static 'images/calendar.png' %}" alt="Calendar" />
+        </a>
+    </div>
+    
+    <!-- Tasks Button -->
+    <div class="button">
+        <a class="service-item-title" href="{% url 'tasks' %}">
+        <img src="{% static 'images/to-do.png' %}" alt="ToDo" /> 
+        </a>
+    </div>
+    
+    <!-- Forums Button -->
+    <div class="button">
+        <a class="service-item-title" href="{% url 'forums' %}">
+        <img src="{% static 'images/rooms.png' %}" alt="Rooms" /> 
+        </a>
+    </div>
+  </div>
+{% endblock content %}

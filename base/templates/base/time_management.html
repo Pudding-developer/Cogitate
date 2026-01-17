@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+{% load static %}
+
+<!-- Linking Google Fonts and setting up the timer section -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+{% block content %}
+<!-- Body of the Pomodoro Timer section -->
+<body>
+    <div class="timer-section">
+        <div class="container-timer">
+            <h2>Pomodoro Timer</h2>
+            <div class="panel">
+                <p id="work">work</p>
+                <p id="break">break</p>
+            </div>
+
+            <!-- Timer display -->
+            <div class="timer">
+                <div class="circle">
+                    <div class="time">
+                        <p id="minutes"></p>
+                        <p>:</p>
+                        <p id="seconds"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timer controls -->
+            <div class="controls">
+                <div class="button-timer" id="start" onclick="start()">
+                    <img src="{% static 'images/start.png' %}" alt="Start">
+                </div>
+
+                <div class="button-timer" id="pause" onclick="pause()">
+                    <img src="{% static 'images/pause.png' %}" alt="Pause">
+                </div>
+
+                <!-- Reset button with replay icon -->
+                <a class="button-timer" id="reset" href="" onclick="reset()">
+                    <img src="{% static 'images/replay.png' %}" alt="Replay">
+                </a>
+            </div>
+        </div>
+
+        <!-- Including JavaScript files for functionality -->
+        <script src="{% static 'js/script.js' %}"></script>
+        <script src="https://kit.fontawesome.com/6f3103b13c.js" crossorigin="anonymous"></script>
+    </body>
+{% endblock %}

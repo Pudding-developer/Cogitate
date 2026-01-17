@@ -1,0 +1,64 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Main content for the To-Do List page -->
+<div class="container">
+    <div class="row">
+        <!-- Page title -->
+        <h1>To Do List</h1>
+        <!-- List of tasks -->
+        <ul class="todo-list">
+            <!-- Search Tasks -->
+            <form class="header__search" method="GET" action="{% url 'tasks' %}">
+                <label>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <title>search</title>
+                        <path
+                            d="M32 30.586l-10.845-10.845c1.771-2.092 2.845-4.791 2.845-7.741 0-6.617-5.383-12-12-12s-12 5.383-12 12c0 6.617 5.383 12 12 12 2.949 0 5.649-1.074 7.741-2.845l10.845 10.845 1.414-1.414zM12 22c-5.514 0-10-4.486-10-10s4.486-10 10-10c5.514 0 10 4.486 10 10s-4.486 10-10 10z">
+                        </path>
+                    </svg>
+                    <input name="q" placeholder="Search for events/tasks..." />
+                </label>
+            </form>
+            <ul>
+                <li>
+                    <a href="{% url 'tasks' %}" class="active">All - <span>{{tasks.count}} Tasks</span></a>
+                </li>
+            </ul>
+            {% for task in tasks %}
+            <li>
+                <!-- Task name -->
+                <div class="task-name">{{ task.name }}</div>
+                <!-- Task dates -->
+                <div class="task-dates">{{ task.start }} - {{ task.end }}</div>
+                <!-- Task status and actions -->
+                <div class="task-status">
+                    {% if not task.complete %}
+                    <!-- Mark as Done action -->
+                    <a href="{% url 'complete-task' task.id %}">
+                        <img src="{% static 'images/circle.svg' %}" class="icon" alt="Mark as Done">
+                        Mark as Done
+                    </a>
+                    <!-- Remove action -->
+                    <a href="{% url 'task-delete' task.id %}">
+                        <img src="{% static 'images/x.svg' %}" class="icon" alt="Remove">
+                        Remove
+                    </a>
+                    {% else %}
+                    <!-- Completed status -->
+                    <span style="color: green;">
+                        <img src="{% static 'images/check-circle.svg' %}" class="icon" alt="Completed">
+                        Completed
+                    </span>
+                    <!-- Remove action for completed task -->
+                    <img src="{% static 'images/x.svg' %}" class="icon" alt="Remove">
+                    <a href="{% url 'task-delete' task.id %}">Remove</a>
+                    {% endif %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

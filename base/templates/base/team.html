@@ -1,0 +1,62 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Team members section with individual cards -->
+<div class="row">
+    <!-- Kristine's card -->
+    <div class="column">
+        <div class="card">
+            <img src="{% static 'images/kristine.png' %}" alt="Kristine" style="width:100%">
+            <div class="container-team">
+                <h5>KRISTINE SUELTO </h5>
+                <p class="title-team">Designer</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shy's card -->
+    <div class="column">
+        <div class="card">
+            <img src="{% static 'images/shy.png' %}" alt="Shy" style="width:100%">
+            <div class="container-team">
+                <h5>SHYRA AVRIL GATILOGO</h5>
+                <p class="title-team">Designer</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edcel's card -->
+    <div class="column">
+        <div class="card">
+            <img src="{% static 'images/edcel.png' %}" alt="Edcel" style="width:100%">
+            <div class="container-team">
+                <h5>MA. EDCEL ILAGAN</h5>
+                <p class="title-team">Designer</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jolo's card -->
+    <div class="column">
+        <div class="card">
+            <img src="{% static 'images/jolo.png' %}" alt="Jolo" style="width:100%">
+            <div class="container-team">
+                <h5>JOHN LLOYD PADRILAN</h5>
+                <p class="title-team">Developer</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leylan's card -->
+    <div class="column">
+        <div class="card">
+            <img src="{% static 'images/leylan.png' %}" alt="Leylan" style="width:100%">
+            <div class="container-team">
+                <h5>LEYLAN DIMAYACYAC</h5>
+                <p class="title-team">Developer</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,59 @@
+{% extends 'main.html' %}
+
+{% block content %}
+  <!-- Main content for the profile page with a three-column layout -->
+  <main class="profile-page layout layout--3">
+    <div class="container">
+      <!-- Include topics components for display -->
+      {% include 'base/topics_components.html' %}
+      <!-- End Topics -->
+
+      <!-- Room List Start -->
+      <div class="roomList">
+        <!-- User profile section -->
+        <div class="profile">
+          <!-- User avatar -->
+          <div class="profile__avatar">
+            <div class="avatar avatar--large active">
+              <!-- Display user avatar -->
+              <img src="{{request.user.avatar.url}}" />
+            </div>
+          </div>
+          <!-- User information -->
+          <div class="profile__info">
+            <!-- Display user name -->
+            <h3>{{user.name}}</h3>
+            <!-- Display user username -->
+            <p>@{{user.username}}</p>
+            <!-- Edit Profile button for the logged-in user -->
+            {% if request.user == user %}
+              <a href="{% url 'update-user' %}" class="btn btn--main btn--pill">Edit Profile</a>
+            {% endif %}
+          </div>
+          <!-- User bio section -->
+          <div class="profile__about">
+            <h3>About</h3>
+            <!-- Display user bio -->
+            <p>{{user.bio}}</p>
+          </div>
+        </div>
+
+        <!-- Header for study rooms hosted by the user -->
+        <div class="roomList__header">
+          <div>
+            <!-- Display the header with the user's username -->
+            <h2>Study Rooms Hosted by {{user.username}}</h2>
+          </div>
+        </div>
+        <!-- Include feed component for displaying study rooms -->
+        {% include 'base/feed_component.html' %}
+      </div>
+      <!-- Room List End -->
+
+      <!-- Activities Start -->
+      <!-- Include activity components for the user's activities -->
+      {% include 'base/activity_components.html' %}
+      <!-- Activities End -->
+    </div>
+  </main>
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Header section with necessary CSS and JS imports -->
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap.min.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Moment.js -->
+    <script src="{% static 'js/moment.min.js' %}"></script>
+    <!-- FullCalendar CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/fullcalendar.css' %}">
+    <!-- FullCalendar JS -->
+    <script src="{% static 'js/fullcalendar.js' %}"></script>    
+</head>
+
+<!-- Body section with the calendar container -->
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">    
+                <!-- Calendar container -->
+                <div id='calendar'></div> 
+            </div> 
+        </div>
+    </div>
+
+    <!-- Custom script for additional functionality -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+<!-- End of Body section -->
+{% endblock content %}
